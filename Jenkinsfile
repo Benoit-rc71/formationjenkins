@@ -9,7 +9,10 @@ pipeline {
         // string(name: "version", description: "Version déployée")
 
         
-        boolean(name: "version", choices: ["mineur", "major", "patch", "snapshot"], description: "Version à déployer")
+        booleanParam(name: "mineur", description: "Version à déployer")
+        booleanParam(name: "major", description: "Version à déployer")
+        booleanParam(name: "patch", description: "Version à déployer")
+        booleanParam(name: "snapshot", description: "Version à déployer")
         choice(name: "environment", choices: ["Test", "Préprod", "Prod"], description: "Environnement sur lequel déployer le livrable")
     }
 
