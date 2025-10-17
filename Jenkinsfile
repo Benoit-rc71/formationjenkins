@@ -56,16 +56,16 @@ pipeline {
                 sshPublisher(
                     publishers: [
                         sshPublisherDesc(
-                        configName: "serveur_distant",
-                        transfers: [
-                            sshTransfer(
-                                sourceFiles: 'target/*.jar',
-                                remoteDirectory: '/tmp',
-                                execCommand: 'ls -al'
+                            configName: "serveur_distant",
+                            transfers: [
+                                sshTransfer(
+                                    sourceFiles: 'target/*.jar',
+                                    remoteDirectory: '/tmp',
+                                    execCommand: 'ls -al'
+                                )
+                            ]
                         )
                     ]
-                 )
-                ]
                 ) 
             }
         }
