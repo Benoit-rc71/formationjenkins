@@ -7,8 +7,6 @@ pipeline {
 
     parameters {
         // string(name: "version", description: "Version déployée")
-
-        
         booleanParam(name: "mineur", description: "Version à déployer")
         booleanParam(name: "major", description: "Version à déployer")
         booleanParam(name: "patch", description: "Version à déployer")
