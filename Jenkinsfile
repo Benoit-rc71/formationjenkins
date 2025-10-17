@@ -53,16 +53,20 @@ pipeline {
             steps {
                 echo "Environnement ${params.environment}"
                 echo "Version ${params.version}" 
-                sshPublisher(publishers: [
-                    configName: "serveur_distant",
-                    transfers: [
-                        sshTransfer(
-                            sourceFiles: 'target/*.jar',
-                            remoteDirectory: '/tmp',
-                            execCommand: 'ls -al'
+                sshPublisher(
+                    publishers: [
+                        sshPublisherDesc(
+                        configName: "serveur_distant",
+                        transfers: [
+                            sshTransfer(
+                                sourceFiles: 'target/*.jar',
+                                remoteDirectory: '/tmp',
+                                execCommand: 'ls -al'
                         )
                     ]
-                ]) 
+                 )
+                ]
+                ) 
             }
         }
     }
