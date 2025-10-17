@@ -4,6 +4,12 @@ pipeline {
         URL_GIT = 'https://github.com/Benoit-rc71/formationjenkins.git'
         CREDENTIALS_ID = 'token-github'
     }
+
+    parameters {
+        string(name: "version", description: "Version déployée")
+        choice(name: "environment", choices: ["Test", "Préprod", "Prod"], description: "Environnement sur lequel déployer le livrable")
+    }
+
     stages {
         stage('Cloner le répertoire') {
             steps {
@@ -41,7 +47,7 @@ pipeline {
         }
          stage('Deploy') {
             steps {
-            echo 'deploy'  
+            echo "Environnement ${params.environment}"  
             }
         }
     }
