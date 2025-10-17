@@ -13,7 +13,7 @@ pipeline {
                     //source: ,
                     branches: [[name: 'main']],
                     userRemoteConfigs: [[
-                        url: "${URL}"
+                        url: "${URL}",
                         credentialsId: "${CREDENTIALS_ID}"                      
                     ]]
                 ])
