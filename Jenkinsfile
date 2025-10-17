@@ -17,6 +17,8 @@ pipeline {
                         credentialsId: "${CREDENTIALS_ID}"                      
                     ]]
                 ])
+                echo "Répertoire cloné"
+                sh "printenv"
             }
         }
          stage('Test') {
