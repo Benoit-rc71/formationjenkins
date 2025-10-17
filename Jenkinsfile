@@ -1,6 +1,9 @@
 pipeline {
     agent any
-
+    environment {
+        URL: 'https://github.com/Benoit-rc71/formationjenkins.git'
+        CREDENTIALS_ID: 'token-github'
+    }
     stages {
         stage('Cloner le répertoire') {
             steps {
@@ -10,8 +13,8 @@ pipeline {
                     //source: ,
                     branches: [[name: 'main']],
                     userRemoteConfigs: [[
-                        credentialsId: 'token-github',
-                        url: 'https://github.com/Benoit-rc71/formationjenkins.git'
+                        url: "${URL}"
+                        credentialsId: "${CREDENTIALS_ID}"                      
                     ]]
                 ])
             }
