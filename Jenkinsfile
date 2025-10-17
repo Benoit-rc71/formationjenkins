@@ -53,14 +53,16 @@ pipeline {
             steps {
                 echo "Environnement ${params.environment}"
                 echo "Version ${params.version}" 
+                sh "mv target/*.jar target/monjar.jar"
                 sshPublisher(
                     publishers: [
                         sshPublisherDesc(
                             configName: "serveur_distant",
+                            verbose: true,
                             transfers: [
                                 sshTransfer(
                                     sourceFiles: 'target/*.jar',
-                                    remoteDirectory: '/tmp',
+                                    remoteDirectory: 'tmp',
                                     execCommand: 'ls -al'
                                 )
                             ]
