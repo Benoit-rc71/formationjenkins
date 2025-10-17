@@ -47,7 +47,8 @@ pipeline {
         }
          stage('Deploy') {
             steps {
-            echo "Environnement ${params.environment}"  
+            echo "Environnement ${params.environment}"
+            echo "Version ${params.version}" 
             }
         }
     }
