@@ -8,7 +8,7 @@ pipeline {
                 checkout([
                     $class: 'GitSCM',
                     //source: ,
-                    branches: [[name: 'master']],
+                    branches: [[name: 'main']],
                     userRemoteConfigs: [[
                         credentialsId: 'token-github',
                         url: 'https://github.com/Benoit-rc71/formationjenkins.git'
