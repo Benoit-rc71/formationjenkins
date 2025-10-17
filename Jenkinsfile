@@ -21,6 +21,12 @@ pipeline {
                 sh "printenv"
             }
         }
+         stage('Build Project') {
+            steps {
+                sh 'chmod +x mvnw'
+                sh './mvnw clean package spring-boot:repackage -Dmaven.test.skip=true'
+            }
+         }
          stage('Test') {
             steps {
                 sh 'ls -al'
